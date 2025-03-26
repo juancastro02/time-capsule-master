@@ -62,15 +62,23 @@ export function updateCapsule(updatedCapsule: TimeCapsule): void {
 }
 
 // Delete a time capsule
-export function deleteCapsule(id: string): void {
-  if (typeof window === "undefined") return
+export function deleteCapsule(id: string): TimeCapsule | null {
+  if (typeof window === "undefined") return null
 
   try {
     const existingCapsules = getAllCapsules()
+    const capsuleToDelete = existingCapsules.find(capsule => capsule.id === id)
+    
+    if (!capsuleToDelete) return null
+    
     const filteredCapsules = existingCapsules.filter((capsule) => capsule.id !== id)
     localStorage.setItem("timeCapsules", JSON.stringify(filteredCapsules))
+    
+    // Return the deleted capsule so we can restore it if needed
+    return capsuleToDelete
   } catch (error) {
     console.error("Error deleting time capsule:", error)
+    throw new Error('Failed to delete time capsule')
   }
 }
 

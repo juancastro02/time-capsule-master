@@ -59,12 +59,7 @@ export default function Navbar() {
             </nav>
 
             <div className="flex items-center gap-2 z-20">
-              <Link href="/capsules/create" className="md:hidden">
-                <Button size="icon" variant="ghost">
-                  <Plus className="h-5 w-5" />
-                </Button>
-              </Link>
-
+              <ModeToggle />
               <Button
                 size="icon"
                 variant="ghost"
@@ -78,8 +73,6 @@ export default function Navbar() {
                   <Menu className="h-5 w-5" />
                 )}
               </Button>
-
-              <ModeToggle />
             </div>
           </div>
         </div>
