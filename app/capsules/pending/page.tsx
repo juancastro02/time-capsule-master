@@ -319,7 +319,7 @@ export default function PendingCapsulesPage() {
             <h1 className="text-2xl sm:text-3xl font-bold text-center sm:text-left">
               Pending Time Capsules
             </h1>
-            <Link href="/capsules/create" className="self-center sm:self-auto">
+            <Link href="/capsules/create" className="w-full sm:w-auto self-center sm:self-auto">
               <Button className="gap-2 w-full sm:w-auto">
                 <Plus className="h-4 w-4" />
                 Create New
@@ -336,6 +336,9 @@ export default function PendingCapsulesPage() {
               <p className="text-muted-foreground mb-6 max-w-md mx-auto">
                 You don't have any time capsules waiting to be opened.
               </p>
+              <Link href="/capsules/create" className="block w-full sm:w-auto sm:inline-block">
+                <Button className="w-full sm:w-auto">Create Your First Time Capsule</Button>
+              </Link>
             </div>
           ) : (
             <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2">
@@ -369,15 +372,16 @@ export default function PendingCapsulesPage() {
                               <span className="sr-only">Actions menu</span>
                             </Button>
                           </DropdownMenuTrigger>
-                          <DropdownMenuContent align="end">
+                          <DropdownMenuContent align="end" className="w-56">
                             <DropdownMenuItem
+                              className="w-full"
                               onClick={() => handleEditCapsule(capsule.id)}
                             >
                               <Pencil className="h-4 w-4 mr-2" />
                               Edit
                             </DropdownMenuItem>
                             <DropdownMenuItem
-                              className="text-destructive focus:text-destructive"
+                              className="w-full text-destructive focus:text-destructive"
                               onSelect={(e) => e.preventDefault()}
                             >
                               <DeleteDialog

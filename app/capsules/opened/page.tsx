@@ -265,8 +265,8 @@ export default function OpenedCapsulesPage() {
             <h1 className="text-2xl sm:text-3xl font-bold text-center sm:text-left">
               Opened Time Capsules
             </h1>
-            <Link href="/capsules/create" className="self-center sm:self-auto">
-              <Button className="gap-2 w-full sm:w-auto">
+            <Link href="/capsules/create" className="w-full sm:w-auto self-center sm:self-auto">
+              <Button className="gap-2 w-full sm:min-w-[160px] sm:justify-center">
                 <Plus className="h-4 w-4" />
                 Create New
               </Button>
@@ -283,8 +283,10 @@ export default function OpenedCapsulesPage() {
                 You haven't opened any time capsules yet. When you open your
                 capsules, they'll appear here.
               </p>
-              <Link href="/capsules/pending">
-                <Button className="mx-auto">View Pending Capsules</Button>
+              <Link href="/capsules/pending" className="block w-full sm:w-auto sm:inline-block">
+                <Button className="w-full sm:min-w-[160px] sm:justify-center">
+                  View Pending Capsules
+                </Button>
               </Link>
             </div>
           ) : (
